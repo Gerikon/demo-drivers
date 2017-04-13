@@ -1,10 +1,13 @@
 class SessionsController < ApplicationController
   # GET /login
   def new
+    authorize :session
   end
 
   # POST /login
   def create
+    authorize :session
+
     client = Welcomepickups::API::Client.new
     response = client.login(email: params[:user][:email], password: params[:user][:password])
 
@@ -26,6 +29,8 @@ class SessionsController < ApplicationController
 
   # DELETE /session
   def destroy
+    authorize :session
+
     session.delete('user')
     redirect_to login_path, notice: 'Signed out successfully.'
   end
