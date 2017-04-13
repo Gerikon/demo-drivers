@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         session['user'] = {}
         session['user']['email'] = params[:user][:email]
         session['user']['token'] = response.json['token']
-        redirect_to login_path, notice: 'Signed in successfully.'
+        redirect_to dashboard_path, notice: 'Signed in successfully.'
       else
         flash.now[:alert] = response.json['result']
         render action: :new
