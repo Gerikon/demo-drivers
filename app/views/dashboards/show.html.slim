@@ -7,4 +7,5 @@ h1 Dashboards
       = f.input :to_date, as: :string, input_html: { type: 'date', value: @to_date }
       = f.submit 'Show', class: 'btn btn-success btn-lg'
 
-  = render partial: 'schedule'
+  - if @schedule.present?
+    = render partial: 'schedule'
