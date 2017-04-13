@@ -6,5 +6,5 @@
 
 # Configuration
 
-You need simple copy /.env_example to /.env
-You can make make changes if you want to use for other API server.
+You need simple copy "/.env_example" to "/.env"
+You can change it if you want to use for other API server.
