@@ -1,0 +1,18 @@
+table#schedule-table.table.table-striped
+  thead
+    tr
+      th Date
+      th Transfers Availability
+      th Requests Availability
+  tbody
+    = render partial: 'schedule_row', collection: @schedule[:days]
+
+  tfoot
+    tr
+      th Total
+      th = formatted_duration(@schedule[:total_transfers])
+      th = formatted_duration(@schedule[:total_requests])
+    tr
+      th Average
+      th = formatted_duration(@schedule[:average_transfers])
+      th = formatted_duration(@schedule[:average_requests])

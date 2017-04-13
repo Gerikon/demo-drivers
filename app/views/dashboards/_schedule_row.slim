@@ -1,0 +1,8 @@
+tr
+  td = schedule_row['date']
+  td
+    - if schedule_row['transfer_available_from'].present?
+      = "#{schedule_row['transfer_available_from']} - #{schedule_row['transfer_available_to']}"
+  td
+    - if schedule_row['request_available_from'].present?
+      = "#{schedule_row['request_available_from']} - #{schedule_row['request_available_to']}"

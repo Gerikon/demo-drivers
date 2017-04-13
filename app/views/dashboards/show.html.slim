@@ -1,0 +1,10 @@
+h1 Dashboards
+
+= simple_form_for :dates, method: :get do |f|
+  .row
+    .col-xs-12.col-sm-4.col-md-3.col-lg-2
+      = f.input :from_date, as: :string, input_html: { type: 'date', value: @from_date }
+      = f.input :to_date, as: :string, input_html: { type: 'date', value: @to_date }
+      = f.submit 'Show', class: 'btn btn-success btn-lg'
+
+  = render partial: 'schedule'
