@@ -5,10 +5,16 @@ class SessionsController < ApplicationController
 
   # POST /login
   def create
-  end
+    client = Welcomepickups::API::Client.new(server: 'crm.welcomepickups.com')
+    response = client.login(email: params[:user][:email], password: params[:user][:password])
 
-  private
-    def session_params
-      params.fetch(:session, {})
+    if response.json['result'] == 'OK'
+      session[:user] = {}
+      session[:user][:token] = response.json['token']
+      redirect_to login_path, notice: 'Signed in successfully'
+    else
+      flash.now[:alert] = response.json['result']
+      render action: :new
     end
+  end
 end
