@@ -10,7 +10,7 @@ module Welcomepickups
 
         @body = response.body
 
-        if body[0] == '{'
+        if body[0] == '{' || body[0] == '['
           @json = JSON.parse(body)
         else
           @json = nil

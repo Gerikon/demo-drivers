@@ -19,7 +19,7 @@ module Welcomepickups
         conn = Faraday.new(url: ENV['WELCOME_API_HOST']) do |faraday|
           # faraday.basic_auth(@login, @password)
           if @user_token
-            faraday.options.context = {
+            faraday.headers = {
                 'X-User-Email': @user_email,
                 'X-User-Token': @user_token
             }

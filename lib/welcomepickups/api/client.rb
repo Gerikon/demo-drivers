@@ -6,13 +6,17 @@ module Welcomepickups
     class Client
       include RestMethods
 
-      def initialize(options = {})
-        @user_email = options[:user_email]
-        @user_token = options[:user_token]
+      def initialize(email: nil, token: nil)
+        @user_email = email
+        @user_token = token
       end
 
       def login(email:, password:)
         post('/login', email: email, password: password, attempt_counter: 1)
+      end
+
+      def account_schedule(from_date:, to_date:)
+        get('/account/schedule', from_date: from_date, to_date: to_date)
       end
     end
   end
