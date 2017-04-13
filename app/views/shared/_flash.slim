@@ -1,0 +1,7 @@
+- flash.any?
+.container-fluid
+  - flash.each do |name, message|
+    = content_tag :div, class: ['alert', 'alert-dismissible', flash_class(name)], role: 'alert' do
+      button.close[type="button" data-dismiss="alert" aria-label="Close"]
+        span[aria-hidden="true"] &times;
+      = message
