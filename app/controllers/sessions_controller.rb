@@ -2,6 +2,8 @@ class SessionsController < ApplicationController
   # GET /login
   def new
     authorize :session
+
+    redirect_to dashboard_path, notice: 'You are already authorized.' if current_user.present?
   end
 
   # POST /login
