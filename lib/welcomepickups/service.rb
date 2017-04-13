@@ -31,8 +31,8 @@ module Welcomepickups
         end
       end
 
-      average_transfers  = total_transfers / count
-      average_requests   = total_requests / count
+      average_transfers  = count > 0 ? total_transfers / count : 0
+      average_requests   = count > 0 ? total_requests / count : 0
 
       schedule = {}
       schedule[:days]              = days
