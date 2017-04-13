@@ -1,0 +1,3 @@
+module Welcomepickups
+
+end
