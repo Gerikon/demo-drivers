@@ -11,10 +11,16 @@ class SessionsController < ApplicationController
     if response.json['result'] == 'OK'
       session[:user] = {}
       session[:user][:token] = response.json['token']
-      redirect_to login_path, notice: 'Signed in successfully'
+      redirect_to login_path, notice: 'Signed in successfully.'
     else
       flash.now[:alert] = response.json['result']
       render action: :new
     end
+  end
+
+  # DELETE /session
+  def destroy
+    session.delete(:user)
+    redirect_to login_path, notice: 'Signed out successfully.'
   end
 end
