@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   # POST /login
   def create
-    client = Welcomepickups::API::Client.new(server: 'crm.welcomepickups.com')
+    client = Welcomepickups::API::Client.new
     response = client.login(email: params[:user][:email], password: params[:user][:password])
 
     if response.successful?
